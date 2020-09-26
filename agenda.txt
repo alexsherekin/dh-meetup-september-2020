@@ -1,0 +1,30 @@
+TypeScript strict mode. What, why and how?
+
+10 minutes
+
+Short intro
+	- TypeScript is a superset of JS. It can be used in 2 modes - default and strict;
+      Default mode let you migrate to TS from JS easy and still have some strict type checking.
+      Strict mode is more advanced option (if you start the project from scratch, it's a recomended option to turn on right away)
+	- what are the options
+		--noImplicitAny - forces to explicitely add types where TS can't infer them implicitely.
+		--noImplicitThis - prevents using this in functions.
+		--alwaysStrict - enables JS strict mode.
+		--strictBindCallApply - typechecking of bind, call and apply methods.
+		--strictNullChecks - excludes the `null` and `undefined` values from the domain of every type and make them only assignable to themselves and `any`.
+        --strictFunctionTypes - disable bivariant parameter checking for function types.
+		--strictPropertyInitialization - ensure non-undefined class properties are initialized in the constructor.
+
+Our story of migration
+	- who we are
+		- log vendor tribe developing goweb app with angular and typescript (https://github.com/deliveryhero/rps-webkick)
+	- why we decided to turn on strict mode
+        - to force ourselves to add types to method args - noImplicitAny
+		- remember to handle `undefined` edge cases and omit unneeded checks - strictNullCheck
+	- what happened when we just turned it on - 763 errors
+	- migration strategies
+		- turn on flag by flag and fix errors
+		- not so trivial with strictNullCheck, produced oo many errors
+		- not possible to cover only some part of the code with strict mode checks
+		- add tsconfig.strict.ts which extends your main tsconfig with just overriding `includes` or `files` values and cover only one part of the code + add linting on commit
+		- increase the coverage until the whole code base is covered
