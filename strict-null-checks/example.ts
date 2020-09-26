@@ -10,3 +10,8 @@ class Foo {
         return this.bar2; // Type 'string | undefined' is not assignable to type 'string'
     }
 }
+
+////////////////////////////////////////////////////////////
+
+function test(array: string[]) {}
+test(undefined); // Argument of type 'undefined' is not assignable to parameter of type 'string[]'
