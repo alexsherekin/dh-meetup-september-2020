@@ -7,12 +7,12 @@ Short intro
       Default mode let you migrate to TS from JS easy and still have some strict type checking.
       Strict mode is more advanced option (if you start the project from scratch, it's a recomended option to turn on right away)
 	- what are the options
+		--alwaysStrict - enables JS strict mode.
 		--noImplicitAny - forces to explicitely add types where TS can't infer them implicitely.
 		--noImplicitThis - prevents using this in functions.
-		--alwaysStrict - enables JS strict mode.
 		--strictBindCallApply - typechecking of bind, call and apply methods.
-		--strictNullChecks - excludes the `null` and `undefined` values from the domain of every type and make them only assignable to themselves and `any`.
         --strictFunctionTypes - disable bivariant parameter checking for function types.
+		--strictNullChecks - excludes the `null` and `undefined` values from the domain of every type and make them only assignable to themselves and `any`.
 		--strictPropertyInitialization - ensure non-undefined class properties are initialized in the constructor.
 
 Our story of migration
